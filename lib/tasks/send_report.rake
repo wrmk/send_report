@@ -7,14 +7,11 @@ namespace :send_report do
 
   task by_email: :environment do
     report = Report.generate(data)
-    
     Mailer.deliver(
       from: 'system@email.com',
       to: 'host@email.com',
       subject: 'Report',
       body: report
-    )    
+    )
   end
-
- 
 end
