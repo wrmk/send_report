@@ -6,7 +6,7 @@ namespace :send_report do
   ]
 
   task by_email: :environment do
-    p data
+    p Report.generate(data)
   end
 
  
