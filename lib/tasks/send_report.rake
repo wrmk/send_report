@@ -6,7 +6,14 @@ namespace :send_report do
   ]
 
   task by_email: :environment do
-    puts Report.generate(data)
+    report = Report.generate(data)
+    
+    Mailer.deliver(
+      from: 'system@email.com',
+      to: 'host@email.com',
+      subject: 'Report',
+      body: report
+    )    
   end
 
  
